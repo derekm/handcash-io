@@ -2,10 +2,24 @@ package org.hackunix.handcash_io.api;
 
 import java.net.URI;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.eclipse.persistence.oxm.annotations.XmlMarshalNullRepresentation;
+import org.eclipse.persistence.oxm.annotations.XmlNullPolicy;
+
+@XmlRootElement
 public class Handle {
 
+	@XmlElement
 	public String receivingAddress;
+
+	@XmlElement(nillable = true)
+	@XmlNullPolicy(emptyNodeRepresentsNull = true, nullRepresentationForXml = XmlMarshalNullRepresentation.EMPTY_NODE)
 	public URI cashAddr;
+
+	@XmlElement(nillable = true)
+	@XmlNullPolicy(emptyNodeRepresentsNull = true, nullRepresentationForXml = XmlMarshalNullRepresentation.EMPTY_NODE)
 	public String publicKey;
 
 	public String getReceivingAddress() {

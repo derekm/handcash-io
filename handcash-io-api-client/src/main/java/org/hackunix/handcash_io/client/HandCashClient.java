@@ -34,4 +34,7 @@ public class HandCashClient extends JerseyClient<HandCashResource> {
 		super(baseUrl, null, null, loggingEnabled);
 	}
 
+	@Override
+	protected void initializeClient() {}
+
 }
